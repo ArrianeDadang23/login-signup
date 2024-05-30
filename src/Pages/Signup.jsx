@@ -7,17 +7,18 @@ import { Link } from "react-router-dom";
 
 export default function SignupPage() {
     
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [isError, setIsError] = useState(false);
-    const validate = () => 
-        {
-            setIsError(true);
-        }
     
+    const validate = () => {
+        setIsError(true);
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -43,8 +44,8 @@ export default function SignupPage() {
                                 fullWidth
                                 label="First Name"
                                 variant="outlined"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
+                                value={firstName}
+                                onChange={(e) => setFirstName(e.target.value)}
                             />
                         </Grid>
                         <Grid item xs={6}>
@@ -52,8 +53,8 @@ export default function SignupPage() {
                                 fullWidth
                                 label="Last Name"
                                 variant="outlined"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
+                                value={lastName}
+                                onChange={(e) => setLastName(e.target.value)}
                             />
                         </Grid>
                     </Grid>
@@ -102,9 +103,9 @@ export default function SignupPage() {
                         sx={{ mt: 2 }}
                     />
                     <Link to="/signup">
-                    <Button type="submit" variant="contained" endIcon={<PersonAddAltRoundedIcon />} fullWidth sx={{ mt: 2 }}>
-                        Sign up
-                    </Button>
+                        <Button type="submit" variant="contained" endIcon={<PersonAddAltRoundedIcon />} fullWidth sx={{ mt: 2 }}>
+                            Sign up
+                        </Button>
                     </Link>
                 </form>
                 <Typography variant="body2" sx={{ mt: 2 }}>
